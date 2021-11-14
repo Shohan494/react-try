@@ -56,7 +56,7 @@ const person = (props) => {
 export default person;
 ```
 
-App with state
+App with state and setState
 
 ```
 import React, { Component } from 'react';
@@ -72,8 +72,6 @@ import Person from './Person/Person';
 //     </div>
 //   );
 
-
-
 //   return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hello From Shohan!'));
 // }
 
@@ -85,10 +83,23 @@ class App extends Component {
     ]
   }
 
+  switchNameHandler = () => {
+    console.log("Clicked!");
+    this.setState(
+      {
+        persons : [
+          { name : "Shohanul Alam", age: 29} ,
+          { name : "Samual", age: 32}
+        ]
+      }
+    )
+  }
+
   render() {
     return (
     <div className="App">
      <h1>Hello From Shohan!</h1>
+     <button onClick={this.switchNameHandler}>Switch Name</button>
      <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>My Hobbies : Racing</Person>
     </div>
     );
@@ -96,5 +107,6 @@ class App extends Component {
 }
 
 export default App;
+
 ```
 
