@@ -109,4 +109,48 @@ class App extends Component {
 export default App;
 
 ```
+Hooks useState
+
+```
+import React, { useState } from 'react';
+import './App.css';
+
+import Person from './Person/Person';
+
+const App = props => {
+  const [ personsState, setPersonsState ] =  useState({
+    persons : [
+      { name : "Shohan", age: 25},
+      { name : "Sam", age: 22}
+    ]
+  });
+
+const switchNameHandler = () => {
+  console.log("Clicked!");
+  setPersonsState(
+    {
+      persons : [
+        { name : "Shohanul Alam", age: 29},
+        { name : "Samual", age: 32}
+      ]
+    }
+  )
+};
+
+  return (
+  <div className="App">
+    <h1>Hello From Shohan!</h1>
+    <button onClick={switchNameHandler}>Switch Name</button>
+    <Person name={personsState.persons[0].name} age={personsState.persons[0].age}>My Hobbies : Racing</Person>
+    <Person name={personsState.persons[1].name} age={personsState.persons[0].age}>My Hobbies : Racing</Person>
+
+  </div>
+  );
+}
+
+export default App;
+
+```
+
+
 
