@@ -56,28 +56,45 @@ const person = (props) => {
 export default person;
 ```
 
-App
+App with state
 
 ```
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
 import Person from './Person/Person';
 
-function App() {
-  return (
+// function App() {
+//   return (
+//     <div className="App">
+//      <h1>Hello From Shohan!</h1>
+//      <Person name="Shohan" age="28">My Hobbies : Racing</Person>
+//     </div>
+//   );
+
+
+
+//   return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hello From Shohan!'));
+// }
+
+class App extends Component {
+  state = {
+    persons : [
+      { name : "Shohan", age: 25} ,
+      { name : "Sam", age: 22}
+    ]
+  }
+
+  render() {
+    return (
     <div className="App">
      <h1>Hello From Shohan!</h1>
-     <Person name="Shohan" age="28">My Hobbies : Racing</Person>
+     <Person name={this.state.persons[0].name} age={this.state.persons[0].age}>My Hobbies : Racing</Person>
     </div>
-  );
-
-
-
-  // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hello From Shohan!'));
+    );
+  }
 }
 
 export default App;
-
 ```
 
