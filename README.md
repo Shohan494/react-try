@@ -40,3 +40,44 @@ function App() {
 export default App;
 
 ```
+Person
+```
+import React from 'react';
+
+const person = (props) => {
+    return (
+    <div>
+    <p>I am a {props.name} and I am {props.age}!</p>
+    <p>{props.children}</p>
+    </div>
+    )
+}
+
+export default person;
+```
+
+App
+
+```
+import React from 'react';
+import './App.css';
+
+import Person from './Person/Person';
+
+function App() {
+  return (
+    <div className="App">
+     <h1>Hello From Shohan!</h1>
+     <Person name="Shohan" age="28">My Hobbies : Racing</Person>
+    </div>
+  );
+
+
+
+  // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hello From Shohan!'));
+}
+
+export default App;
+
+```
+
